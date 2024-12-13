@@ -1,0 +1,14 @@
+.page {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  background-color: #fcf5e5;
+  min-height: 100vh;
+  color: #212121;
+}
+
+.page__section {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 320px) and (max-width: 627px) {
+}
