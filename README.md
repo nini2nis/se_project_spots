@@ -28,10 +28,10 @@ This project also marked the first time the display grid function was used. It w
 
 [Hover effects](https://drive.google.com/file/d/1WUP1eLnErVqvjzc1IffQ6rNShupeFkif/view?usp=drive_link)
 
-**Github Pages Link**
+**Github Pages**
 
 Click [here](https://nini2nis.github.io/se_project_spots/index.html)
 
-**Video Presentation Link**
+**Video Presentation**
 
-_Coming Soon_ Click [here]()
+Click [here](https://drive.google.com/file/d/1NIykR6oZe_juJq6NJqIEIO644Y10gAqz/view?usp=drive_link)
