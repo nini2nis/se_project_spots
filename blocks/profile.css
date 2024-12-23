@@ -55,7 +55,7 @@
   font-size: 16px;
   line-height: 1;
   font-weight: 500;
-  cursor: url(../images/2-photo-by-ceiline-from-pexels.jpg), pointer;
+  cursor: url(../images/cursor-hand.svg), pointer;
 }
 
 .profile__edit-button:hover {
@@ -85,7 +85,7 @@
   font-size: 16px;
   line-height: 1;
   font-weight: 500;
-  cursor: url(../images/2-photo-by-ceiline-from-pexels.jpg), pointer;
+  cursor: url(../images/cursor-hand.svg), pointer;
 }
 
 .profile__post-button:hover {
