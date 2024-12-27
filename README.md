@@ -34,4 +34,10 @@ Click [here](https://nini2nis.github.io/se_project_spots/index.html)
 
 **Video Presentation**
 
-Click [here](https://drive.google.com/file/d/1NIykR6oZe_juJq6NJqIEIO644Y10gAqz/view?usp=drive_link)
+[Sprint 3 Presentation](https://drive.google.com/file/d/1NIykR6oZe_juJq6NJqIEIO644Y10gAqz/view?usp=drive_link)
+
+**Sprint 4 Updates**
+
+- Set up filled fields when opening Edit Profile Modal
+- Made the Save button in the Edit Profile Modal functional
+- Created template to render cards via javascript instead of html

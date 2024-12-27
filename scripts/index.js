@@ -27,10 +27,34 @@ const initialCards = [
 
 const editProfileButton = document.querySelector(".profile__edit-button");
 const editModal = document.querySelector("#edit-modal");
+const editFormElement = editModal.querySelector(".modal__form");
 const modalCloseButton = editModal.querySelector(".modal__close-button");
-//const submitButton = editModal.querySelector(".modal__submit-button");
+const profileNameInput = editModal.querySelector("#name");
+const profileName = document.querySelector(".profile__name");
+const profileDescriptionInput = editModal.querySelector("#description");
+const profileDescription = document.querySelector(".profile__description");
+const cardTemplate = document.querySelector("#card-template");
+const cardsList = document.querySelector(".cards__list");
+
+function getCardElement(data) {
+  console.log(data);
+  const cardElement = cardTemplate.content
+    .querySelector(".card")
+    .cloneNode(true);
+
+  const cardName = cardElement.querySelector(".card__text");
+  const cardImage = cardElement.querySelector(".card__image");
+
+  cardName.textContent = data.name;
+  cardImage.src = data.link;
+  cardImage.alt = data.name;
+
+  return cardElement;
+}
 
 function openModal() {
+  profileNameInput.value = profileName.textContent;
+  profileDescriptionInput.value = profileDescription.textContent;
   editModal.classList.add("modal_opened");
 }
 
@@ -38,6 +62,20 @@ function closeModal() {
   editModal.classList.remove("modal_opened");
 }
 
-editProfileButton.addEventListener("click", openModal);
+function handleProfileFormSubmit(evt) {
+  evt.preventDefault();
 
+  profileName.textContent = profileNameInput.value;
+  profileDescription.textContent = profileDescriptionInput.value;
+
+  closeModal();
+}
+
+editProfileButton.addEventListener("click", openModal);
 modalCloseButton.addEventListener("click", closeModal);
+editFormElement.addEventListener("submit", handleProfileFormSubmit);
+
+for (let i = 0; i < initialCards.length; i++) {
+  const cardElement = getCardElement(initialCards[i]);
+  cardsList.prepend(cardElement);
+}
