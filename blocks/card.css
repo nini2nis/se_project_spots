@@ -1,13 +1,36 @@
 .card {
   margin: 0;
+  position: relative;
 }
 
 .card__image {
   width: 413px;
   height: 413px;
   border-radius: 8px;
+  overflow: hidden;
   object-fit: cover;
   display: block;
+  z-index: 0;
+}
+
+.card__trash-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-image: url(../images/icon_trash.svg);
+  background-repeat: no-repeat;
+  background-color: transparent;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  opacity: 30%;
+  z-index: 1;
+}
+
+.card__trash-button:hover {
+  background-image: url(../images/icon_trash_hover.svg);
+  opacity: 100%;
 }
 
 .card__info {
@@ -47,10 +70,20 @@
   opacity: 100%;
 }
 
+.card__heart-button_liked {
+  background-image: url(../images/icon_heart_liked.svg);
+  opacity: 100%;
+}
+
+.card__heart-button_liked:hover {
+  opacity: 50%;
+}
+
 @media screen and (max-width: 627px) {
   .card {
     margin: 0 auto;
   }
+
   .card__image {
     height: 288px;
     width: 288px;

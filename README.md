@@ -1,4 +1,4 @@
-# Project 3: Spots
+# Project 5: Spots
 
 ### Overview
 
@@ -10,13 +10,19 @@
 
 **Project Description**
 
-This project marks the conclusion of TripleTen's Sprint 3. This also concludes Module 1 of the program that spans Sprint 1-3 and covers html and css. Responsive design implementation was applied to optimize the page across different screen sizes, from smartphone all the way to destop.
+This project covers the end of Sprints 3-5. HTML and CSS was heavily implemented for the Sprint 3 project and somewhat less additions were made for Sprint 4-5 projects. Responsive design implementation was applied to optimize the page across different screen sizes, from smartphone all the way to destop. Starting from Sprint 4 javascript was added to make the page more functional and render the buttons functional.
 
 **Description of technologies and techniques used**
 
-In order to achieve a responsive design a desktop-first approach was used. The page was first set up for desktop screens and in the following phase scaled down to smartphone using media queries defining screen size.
+- HTML
+- CSS
+- Responsive design (desktop-first approach)
+- Grid display
+- Hover effects
 
-This project also marked the first time the display grid function was used. It was applied in such a way as to scale down the number of columns depending on screen size.
+- Javascript
+- Templates
+- Popup modal forms
 
 **Screenshots**
 
@@ -41,3 +47,15 @@ Click [here](https://nini2nis.github.io/se_project_spots/index.html)
 - Set up filled fields when opening Edit Profile Modal
 - Made the Save button in the Edit Profile Modal functional
 - Created template to render cards via javascript instead of html
+
+**Sprint 5 Updates**
+
+- Changed the card rendering from loop to a forEach expression
+- Refactored the OpenModal() and CloseModal() so it can be used in multiple instances, not just for the Edit profile modal
+- New cards can now be added with the New Post modal
+- The "Like" button changes when clicked
+- Added "Trash" button, when clicked corresponding card is removed
+- Created a modal to preview images qhen clicking on the card images. Added functionality to the close button. Made it into a responsive design
+- Addded smooth transitions for fading in and out of the modals
+
+CHECKLIST!!

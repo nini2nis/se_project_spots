@@ -10,10 +10,14 @@
   align-content: center;
   justify-content: center;
   visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s linear, opacity 0.5s linear;
 }
 
 .modal_opened {
   visibility: visible;
+  opacity: 1;
+  z-index: 2;
 }
 
 .modal__container {
@@ -24,6 +28,7 @@
   position: relative;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 8px;
 }
 
 .modal__close-button {
@@ -115,6 +120,60 @@
   background-color: rgba(33, 33, 33, 0.8);
 }
 
+.modal__img-container {
+  height: auto;
+  width: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.modal__image {
+  padding: 0;
+  margin: 0;
+  z-index: 1;
+  max-width: 80vw;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.modal__image-name {
+  background-color: #212121;
+  color: #fff;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  border-radius: 8px;
+  padding: 4px 8px;
+  margin: 8px 0 0;
+  width: fit-content;
+}
+
+.modal__close-button-white {
+  background-image: url(../images/icon_x_white.svg);
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 0px;
+  right: 200px;
+  height: 40px;
+  width: 40px;
+  padding: 0;
+  cursor: url(../images/cursor-hand.svg), pointer;
+  z-index: 2;
+}
+
+.modal__close-button-white:hover {
+  opacity: 40%;
+}
+
 @media screen and (max-width: 627px) {
   .modal__container {
     max-width: 276px;
@@ -122,27 +181,44 @@
     padding: 12px;
     border-radius: 8px;
   }
+
   .modal__close-button {
     top: 0;
     right: 0;
   }
+
   .modal__title {
     font-size: 20px;
     margin-bottom: 34px;
   }
+
   .modal__label {
     margin-bottom: 24px;
   }
+
   .modal__input {
     font-size: 16px;
     padding-left: 12px;
   }
+
   .modal__input:focus {
     outline: none;
     border: 1px solid rgba(33, 33, 33, 1);
   }
+
   .modal__submit-button {
     max-width: 276px;
     width: 100%;
+  }
+
+  .modal__image-name {
+    font-size: 16px;
+    border-radius: 4px;
+    max-width: 200px;
+  }
+
+  .modal__close-button-white {
+    top: -38px;
+    right: 38px;
   }
 }
