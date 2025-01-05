@@ -26,6 +26,7 @@
   border: none;
   opacity: 30%;
   z-index: 1;
+  cursor: url(../images/cursor-hand.svg), pointer;
 }
 
 .card__trash-button:hover {
