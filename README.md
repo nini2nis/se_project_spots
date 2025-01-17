@@ -58,4 +58,7 @@ Click [here](https://nini2nis.github.io/se_project_spots/index.html)
 - Created a modal to preview images qhen clicking on the card images. Added functionality to the close button. Made it into a responsive design
 - Addded smooth transitions for fading in and out of the modals
 
-CHECKLIST!!
+**Sprint 6 updates**
+
+- Created validation script with functions to validate form entries and added css markup to style accordingly
+- Configured objects in validation functions

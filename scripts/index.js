@@ -32,7 +32,7 @@ const initialCards = [
 const editProfileButton = document.querySelector(".profile__edit-button");
 const editModal = document.querySelector("#edit-modal");
 const editModalCloseButton = editModal.querySelector(".modal__close-button");
-const profileForm = document.querySelector(".modal__form");
+const profileForm = editModal.querySelector(".modal__form");
 const profileNameInput = editModal.querySelector("#profile-name");
 const profileDescriptionInput = editModal.querySelector("#profile-description");
 const profileName = document.querySelector(".profile__name");
@@ -44,6 +44,7 @@ const addCardCloseButton = addCardModal.querySelector(".modal__close-button");
 const cardForm = addCardModal.querySelector(".modal__form");
 const cardLinkInput = addCardModal.querySelector("#card-link");
 const cardNameInput = addCardModal.querySelector("#card-name");
+const cardSubmitButton = addCardModal.querySelector(".modal__submit-button");
 const modalPreview = document.querySelector("#modal-preview");
 const modalImageName = modalPreview.querySelector(".modal__image-name");
 const modalImage = modalPreview.querySelector(".modal__image");
@@ -90,6 +91,8 @@ function getCardElement(data) {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", closeOnEsc);
+  document.addEventListener("mousedown", closeOnOverlayClick);
 }
 
 function closeModal(modal) {
@@ -109,8 +112,35 @@ function handleCardFormSubmit(evt) {
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
   evt.target.reset();
+  disableButton(cardSubmitButton, settings);
   closeModal(addCardModal);
 }
+
+const closeOnOverlayClick = () => {
+  const modals = Array.from(document.querySelectorAll(".modal"));
+  console.log("CLICKED");
+  modals.forEach((modal) => {
+    document.addEventListener("mousedown", (evt) => {
+      if (evt.target === modal) {
+        closeModal(modal);
+        document.removeEventListener("mousedown", closeOnOverlayClick);
+      }
+    });
+  });
+};
+
+const closeOnEsc = () => {
+  const modals = Array.from(document.querySelectorAll(".modal"));
+  console.log("ESC");
+  modals.forEach((modal) => {
+    document.addEventListener("keydown", (evt) => {
+      if (evt.key === "Escape") {
+        closeModal(modal);
+        document.removeEventListener("keydown", closeOnEsc);
+      }
+    });
+  });
+};
 
 editProfileButton.addEventListener("click", () => {
   profileNameInput.value = profileName.textContent;

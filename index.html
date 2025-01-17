@@ -58,7 +58,12 @@
         <div class="modal__container">
           <button class="modal__close-button" type="button"></button>
           <h3 class="modal__title">Edit Profile</h3>
-          <form class="modal__form" name="edit-profile" id="edit-profile">
+          <form
+            class="modal__form"
+            name="edit-profile"
+            id="edit-profile"
+            novalidate
+          >
             <fieldset class="modal__fieldset">
               <label class="modal__label" for="profile-name"
                 >Name
@@ -68,7 +73,13 @@
                   id="profile-name"
                   name="name"
                   placeholder="Type your name here"
-              /></label>
+                  minlength="2"
+                  maxlength="40"
+                  required /><span
+                  class="profile-name-error modal__input-error"
+                  id="profile-name-error"
+                ></span
+              ></label>
               <label class="modal__label" for="profile-description"
                 >Description
                 <input
@@ -77,7 +88,13 @@
                   id="profile-description"
                   name="description"
                   placeholder="Type your description here"
-              /></label>
+                  minlength="2"
+                  maxlength="200"
+                  required /><span
+                  class="profile-description-error modal__input-error"
+                  id="profile-description-error"
+                ></span
+              ></label>
               <button class="modal__submit-button" type="submit">Save</button>
             </fieldset>
           </form>
@@ -87,7 +104,12 @@
         <div class="modal__container">
           <button class="modal__close-button" type="button"></button>
           <h3 class="modal__title">New post</h3>
-          <form class="modal__form" name="new-post" id="new-post-form">
+          <form
+            class="modal__form"
+            name="new-post"
+            id="new-post-form"
+            novalidate
+          >
             <fieldset class="modal__fieldset">
               <label class="modal__label" for="card-link"
                 >Image link
@@ -97,7 +119,12 @@
                   id="card-link"
                   name="link"
                   placeholder="Paste a link to the picture"
-              /></label>
+                  required
+                /><span
+                  class="card-link-error modal__input-error"
+                  id="card-link-error"
+                ></span>
+              </label>
               <label class="modal__label" for="card-name"
                 >Image caption
                 <input
@@ -106,7 +133,13 @@
                   id="card-name"
                   name="name"
                   placeholder="Type your caption"
-              /></label>
+                  minlength="2"
+                  maxlength="30"
+                  required /><span
+                  class="card-name-error modal__input-error"
+                  id="card-name-error"
+                ></span
+              ></label>
               <button class="modal__submit-button" type="submit">Save</button>
             </fieldset>
           </form>
@@ -123,6 +156,7 @@
         </div>
       </div>
     </div>
+    <script src="./scripts/validation.js" defer></script>
     <script src="./scripts/index.js" defer></script>
   </body>
 </html>
