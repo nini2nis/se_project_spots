@@ -51,7 +51,6 @@ const modalImage = modalPreview.querySelector(".modal__image");
 const closeModalPreviewButton = modalPreview.querySelector(
   ".modal__close-button"
 );
-const modals = Array.from(document.querySelectorAll(".modal"));
 const popups = document.querySelectorAll(".modal");
 
 const cardTemplate = document.querySelector("#card-template");
@@ -94,7 +93,6 @@ function getCardElement(data) {
 function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", closeOnEsc);
-  document.addEventListener("mousedown", closeOnOverlayClick);
 }
 
 function closeModal(modal) {
