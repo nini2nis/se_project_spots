@@ -98,7 +98,6 @@ function openModal(modal) {
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", closeOnEsc);
-  document.removeEventListener("mousedown", closeOnOverlayClick);
 }
 
 function handleProfileFormSubmit(evt) {
@@ -116,12 +115,6 @@ function handleCardFormSubmit(evt) {
   evt.target.reset();
   disableButton(cardSubmitButton, settings);
   closeModal(addCardModal);
-}
-
-function closeOnOverlayClick(evt) {
-  if (evt.target.classList.contains("modal")) {
-    closeModal(evt.target);
-  }
 }
 
 function closeOnEsc(evt) {
