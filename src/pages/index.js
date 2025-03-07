@@ -1,3 +1,28 @@
+import "./index.css";
+
+import logoSrc from "../images/logo.svg";
+const logoImage = document.getElementById("header__logo");
+logoImage.src = logoSrc;
+
+import avatarSrc from "../images/avatar.jpg";
+const avatarImage = document.getElementById("profile__avatar");
+avatarImage.src = avatarSrc;
+
+import penSrc from "../images/icon_pen.svg";
+const penImage = document.getElementById("profile__edit-icon");
+penImage.src = penSrc;
+
+import plusSrc from "../images/icon_plus.svg";
+const plusImage = document.getElementById("profile__post-icon");
+plusImage.src = plusSrc;
+
+import {
+  settings,
+  resetValidation,
+  disableButton,
+  enableValidation,
+} from "../scripts/validation.js";
+
 const initialCards = [
   {
     name: "Venice, Italy",
@@ -161,3 +186,5 @@ cardForm.addEventListener("submit", handleCardFormSubmit);
 initialCards.forEach((item) => {
   renderCard(item);
 });
+
+enableValidation(settings);

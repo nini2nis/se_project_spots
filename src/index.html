@@ -7,22 +7,31 @@
     <meta name="author" content="Anisa Baravalle" />
     <meta name="description" content="Spots" />
     <meta name="keywords" content="TripleTen, html, css, spots" />
-    <link rel="stylesheet" href="./pages/index.css" />
-    <link rel="icon" type="images/favicon.ico" href="favicon.ico" />
   </head>
   <body>
     <div class="page">
       <header class="header">
-        <img src="./images/logo.svg" alt="Logo" class="header__logo" />
+        <img
+          id="header__logo"
+          src="/images/logo.svg"
+          alt="Logo"
+          class="header__logo"
+        />
       </header>
       <main class="main">
         <section class="profile page__section">
-          <img src="./images/avatar.jpg" alt="Avatar" class="profile__avatar" />
+          <img
+            id="profile__avatar"
+            src="./images/avatar.jpg"
+            alt="Avatar"
+            class="profile__avatar"
+          />
           <div class="profile__info">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
             <button class="profile__edit-button" type="button">
               <img
+                id="profile__edit-icon"
                 src="./images/icon_pen.svg"
                 alt="Edit Icon"
                 class="profile__edit-icon"
@@ -31,6 +40,7 @@
           </div>
           <button class="profile__post-button" type="button">
             <img
+              id="profile__post-icon"
               class="profile__post-icon"
               src="./images/icon_plus.svg"
               alt="Plus Icon"
@@ -42,7 +52,7 @@
           <ul class="cards__list">
             <template id="card-template">
               <li class="card">
-                <img src="" alt="" class="card__image" />
+                <img alt="" class="card__image" />
                 <button class="card__trash-button" type="button"></button>
                 <div class="card__info">
                   <h2 class="card__text"></h2>
@@ -147,7 +157,7 @@
       </div>
       <div class="modal" id="modal-preview">
         <div class="modal__img-container">
-          <img src="" alt="" class="modal__image" />
+          <img alt="" class="modal__image" />
           <button
             class="modal__close-button modal__close-button-white"
             type="button"
@@ -156,7 +166,5 @@
         </div>
       </div>
     </div>
-    <script src="./scripts/validation.js" defer></script>
-    <script src="./scripts/index.js" defer></script>
   </body>
 </html>
