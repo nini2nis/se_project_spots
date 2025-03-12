@@ -1,4 +1,4 @@
-# Project 5: Spots
+# Project 9: Spots
 
 ### Overview
 
@@ -10,7 +10,7 @@
 
 **Project Description**
 
-This project covers the end of Sprints 3-5. HTML and CSS was heavily implemented for the Sprint 3 project and somewhat less additions were made for Sprint 4-5 projects. Responsive design implementation was applied to optimize the page across different screen sizes, from smartphone all the way to destop. Starting from Sprint 4 javascript was added to make the page more functional and render the buttons functional.
+This project covers the end of Sprints 3-6 & 9. HTML and CSS was heavily implemented for the Sprint 3 project and somewhat less additions were made for Sprint 4-5 projects. Responsive design implementation was applied to optimize the page across different screen sizes, from smartphone all the way to destop. Starting from Sprint 4 javascript was added to make the page more functional and render the buttons functional. Finally APIs where introduced via webpack in Sprint 9 so any changes are saved and preserved even upon page reloading.
 
 **Description of technologies and techniques used**
 
@@ -23,6 +23,8 @@ This project covers the end of Sprints 3-5. HTML and CSS was heavily implemented
 - Javascript
 - Templates
 - Popup modal forms
+
+- Webpack & APIs
 
 **Screenshots**
 
@@ -62,3 +64,9 @@ Click [here](https://nini2nis.github.io/se_project_spots/index.html)
 
 - Created validation script with functions to validate form entries and added css markup to style accordingly
 - Configured objects in validation functions
+
+**Sprint 9 updates**
+
+- Implemented Webpack and Apis in order to preserve changes on refresh. Now any changes to Avatar, Profile, Adding/Removing Cards, Liking/Unlking Cards does not reset on refresh.
+- Created a modal to change the avatar and to confirm deletion of cards
+- Created loading text functions when Saving or Deleting in case of slow server
