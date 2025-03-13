@@ -16,7 +16,9 @@ plusImage.src = plusSrc;
 
 /*    JS MODULE IMPORTS          */
 import Api from "../utils/Api.js";
-import { setButtonText } from "../utils/Helpers.js";
+
+import { handleSubmit } from "../utils/Helpers.js";
+
 import {
   settings,
   resetValidation,
@@ -61,6 +63,7 @@ const modalImage = modalPreview.querySelector(".modal__image");
 /*    DELETE MODAL SELECTORS    */
 const modalDelete = document.querySelector("#modal-delete");
 const deleteForm = modalDelete.querySelector(".modal__form");
+const deleteSubmitButton = modalDelete.querySelector(".modal__submit-button");
 const cancelModalButton = document.querySelector(".modal__cancel-button");
 
 const api = new Api({
@@ -86,67 +89,54 @@ api
   });
 
 function handleProfileFormSubmit(evt) {
-  evt.preventDefault();
-  const submitButton = evt.submitter;
-  setButtonText(submitButton, true);
-  api
-    .editUserInfo({
-      name: profileNameInput.value,
-      about: profileDescriptionInput.value,
-    })
-    .then((data) => {
-      profileName.textContent = data.name;
-      profileDescription.textContent = data.about;
-      closeModal(editModal);
-    })
-    .catch((err) => {
-      console.error(err);
-    })
-    .finally(() => {
-      setButtonText(submitButton, false);
-    });
+  // create a request function that returns a promise
+  function editUserInfo() {
+    // `return` lets us use a promise chain `then, catch, finally`
+    return api
+      .editUserInfo({
+        name: profileNameInput.value,
+        about: profileDescriptionInput.value,
+      })
+      .then((data) => {
+        profileName.textContent = data.name;
+        profileDescription.textContent = data.about;
+        closeModal(editModal);
+      });
+  }
+  // here we call handleSubmit passing the request and event (if you want a different loading text then you need to pass the 3rd param)
+  handleSubmit(editUserInfo, evt);
 }
 
 function handleAvatarFormSubmit(evt) {
-  evt.preventDefault();
-  const submitButton = evt.submitter;
-  setButtonText(submitButton, true);
-  api
-    .editAvatar({
-      avatar: avatarLinkInput.value,
-    })
-    .then((data) => {
-      avatarImage.src = data.avatar;
-      closeModal(avatarModal);
-      evt.target.reset();
-    })
-    .catch((err) => {
-      console.error(err);
-    })
-    .finally(() => {
-      setButtonText(submitButton, false);
-    });
+  function editAvatar() {
+    return api
+      .editAvatar({
+        avatar: avatarLinkInput.value,
+      })
+      .then((data) => {
+        avatarImage.src = data.avatar;
+        disableButton(deleteSubmitButton, settings);
+        closeModal(avatarModal);
+      });
+  }
+  handleSubmit(editAvatar, evt);
 }
 
 function handleCardFormSubmit(evt) {
-  evt.preventDefault();
-  const submitButton = evt.submitter;
-  setButtonText(submitButton, true);
-  api
-    .addNewCard({ name: cardNameInput.value, link: cardLinkInput.value })
-    .then((cardData) => {
-      const cardElement = getCardElement(cardData);
-      cardsList.prepend(cardElement);
-      evt.target.reset();
-      disableButton(cardSubmitButton, settings);
-      closeModal(addCardModal);
-    })
-    .catch((err) => {
-      console.error(err);
-    })
-    .finally(() => {
-      setButtonText(submitButton, false);
-    });
+  function addNewCard() {
+    return api
+      .addNewCard({
+        name: cardNameInput.value,
+        link: cardLinkInput.value,
+      })
+      .then((cardData) => {
+        const cardElement = getCardElement(cardData);
+        cardsList.prepend(cardElement);
+        disableButton(cardSubmitButton, settings);
+        closeModal(addCardModal);
+      });
+  }
+  handleSubmit(addNewCard, evt);
 }
 
 let selectedCard;
@@ -207,19 +197,13 @@ function handleDeleteCard(cardElement, data) {
 }
 
 function handleDeleteSubmit(evt) {
-  evt.preventDefault();
-  const submitButton = evt.submitter;
-  setButtonText(submitButton, true, "Deleting...", "Delete");
-  api
-    .removeCard(selectedCardId)
-    .then(() => {
+  function removeCard() {
+    return api.removeCard(selectedCardId).then(() => {
       selectedCard.remove();
       closeModal(modalDelete);
-    })
-    .catch((err) => {
-      console.error(err);
-    })
-    .finally(setButtonText(submitButton, false, "Deleting...", "Delete"));
+    });
+  }
+  handleSubmit(removeCard, evt, "Deleting...");
 }
 
 function openModal(modal) {
