@@ -23,6 +23,6 @@ export function handleSubmit(request, evt, loadingText = "Saving...") {
     .catch(console.error)
 
     .finally(() => {
-      setButtonText(submitButton, false, defaultText);
+      setButtonText(submitButton, false, loadingText, defaultText);
     });
 }
