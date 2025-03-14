@@ -48,7 +48,6 @@ const addCardModal = document.querySelector("#post-modal");
 const cardForm = document.forms["new-post-form"];
 const cardLinkInput = addCardModal.querySelector("#card-link");
 const cardNameInput = addCardModal.querySelector("#card-name");
-const cardSubmitButton = addCardModal.querySelector(".modal__submit-button");
 const cardsList = document.querySelector(".cards__list");
 
 /*   MODAL & TEMPLATE SELECTORS     */
@@ -63,7 +62,6 @@ const modalImage = modalPreview.querySelector(".modal__image");
 /*    DELETE MODAL SELECTORS    */
 const modalDelete = document.querySelector("#modal-delete");
 const deleteForm = modalDelete.querySelector(".modal__form");
-const deleteSubmitButton = modalDelete.querySelector(".modal__submit-button");
 const cancelModalButton = document.querySelector(".modal__cancel-button");
 
 const api = new Api({
@@ -115,7 +113,7 @@ function handleAvatarFormSubmit(evt) {
       })
       .then((data) => {
         avatarImage.src = data.avatar;
-        disableButton(deleteSubmitButton, settings);
+        disableButton(evt.submitter, settings);
         closeModal(avatarModal);
       });
   }
@@ -132,7 +130,7 @@ function handleCardFormSubmit(evt) {
       .then((cardData) => {
         const cardElement = getCardElement(cardData);
         cardsList.prepend(cardElement);
-        disableButton(cardSubmitButton, settings);
+        disableButton(evt.submitter, settings);
         closeModal(addCardModal);
       });
   }
